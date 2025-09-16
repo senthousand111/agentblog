@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Learning Blog - Sen千折</title>
+    <meta name="description" content="Exploring AI agents, machine learning, and the future of intelligence">
+    <meta name="keywords" content="AI, Machine Learning, Agents, Deep Learning, Sen千折">
+    <meta name="author" content="Sen千折">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/agent-learning-blog/">
+    <meta property="og:title" content="Agent Learning Blog">
+    <meta property="og:description" content="Exploring AI agents, machine learning, and the future of intelligence">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/agent-learning-blog/">
+    <meta property="twitter:title" content="Agent Learning Blog">
+    <meta property="twitter:description" content="Exploring AI agents, machine learning, and the future of intelligence">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo" data-en="Agent Learning Blog" data-zh="智能体学习博客">Agent Learning Blog</div>
+            <nav class="nav">
+                <a href="#" class="nav-item active" data-page="home" data-en="Home" data-zh="首页">Home</a>
+                <a href="#" class="nav-item" data-page="about" data-en="About" data-zh="关于">About</a>
+                <button class="language-toggle" onclick="toggleLanguage()">中文</button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div id="home-page" class="page">
+                <h1 class="page-title" data-en="Latest Posts" data-zh="最新文章">Latest Posts</h1>
+                <p class="page-subtitle" data-en="Exploring AI agents, machine learning, and the future of intelligence" data-zh="探索AI智能体、机器学习和智能的未来">Exploring AI agents, machine learning, and the future of intelligence</p>
+                
+                <div class="blog-posts" id="blog-posts">
+                    <div class="loading" data-en="Loading posts..." data-zh="加载文章中...">Loading posts...</div>
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div id="about-page" class="page hidden">
+                <a href="#" class="back-btn" onclick="showPage('home')" data-en="← Back to Home" data-zh="← 返回首页">← Back to Home</a>
+                <div class="about-content">
+                    <div class="about-header">
+                        <div class="avatar">
+                            <img src="assets/images/avatar.jpg" alt="Sen千折" onerror="this.style.display='none'">
+                        </div>
+                        <h1 class="author-name">Sen千折</h1>
+                        <p class="author-title" data-en="AI Researcher & Agent Learning Enthusiast" data-zh="AI研究员 & 智能体学习爱好者">AI Researcher & Agent Learning Enthusiast</p>
+                    </div>
+                    
+                    <div class="about-section">
+                        <h2 class="section-title" data-en="About Me" data-zh="关于我">About Me</h2>
+                        <p data-en="Hello! I'm Sen千折, passionate about exploring the frontiers of artificial intelligence, particularly in agent learning and autonomous systems. Through this blog, I share insights, research findings, and thoughts on the evolving landscape of AI." data-zh="你好！我是Sen千折，对探索人工智能前沿特别感兴趣，尤其是智能体学习和自主系统。通过这个博客，我分享见解、研究发现和对AI发展前景的思考。">Hello! I'm Sen千折, passionate about exploring the frontiers of artificial intelligence, particularly in agent learning and autonomous systems. Through this blog, I share insights, research findings, and thoughts on the evolving landscape of AI.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="section-title" data-en="Research Interests" data-zh="研究兴趣">Research Interests</h2>
+                        <ul>
+                            <li data-en="Multi-agent systems and coordination" data-zh="多智能体系统与协调">Multi-agent systems and coordination</li>
+                            <li data-en="Reinforcement learning and autonomous decision making" data-zh="强化学习与自主决策">Reinforcement learning and autonomous decision making</li>
+                            <li data-en="Large language models and reasoning" data-zh="大语言模型与推理">Large language models and reasoning</li>
+                            <li data-en="AI safety and alignment" data-zh="AI安全与对齐">AI safety and alignment</li>
+                            <li data-en="Neural architecture search and AutoML" data-zh="神经架构搜索与自动机器学习">Neural architecture search and AutoML</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="section-title" data-en="Publications & Projects" data-zh="发表论文与项目">Publications & Projects</h2>
+                        <p data-en="Currently working on several research projects in multi-agent learning and autonomous systems. Publications and project links will be updated here as they become available." data-zh="目前正在进行多个多智能体学习和自主系统的研究项目。发表论文和项目链接将在可用时在此更新。">Currently working on several research projects in multi-agent learning and autonomous systems. Publications and project links will be updated here as they become available.</p>
+                    </div>
+
+                    <div class="about-section">
+                        <h2 class="section-title" data-en="Contact" data-zh="联系方式">Contact</h2>
+                        <p data-en="Feel free to reach out if you'd like to discuss AI research, collaborate on projects, or just chat about the future of intelligent systems!" data-zh="如果您想讨论AI研究、合作项目，或只是聊聊智能系统的未来，随时联系我！">Feel free to reach out if you'd like to discuss AI research, collaborate on projects, or just chat about the future of intelligent systems!</p>
+                        <div class="social-links">
+                            <a href="mailto:your.email@example.com" class="social-link" data-en="Email" data-zh="邮箱">Email</a>
+                            <a href="https://github.com/yourusername" class="social-link" target="_blank">GitHub</a>
+                            <a href="https://twitter.com/yourusername" class="social-link" target="_blank">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Post View -->
+            <div id="post-page" class="page hidden">
+                <a href="#" class="back-btn" onclick="showPage('home')" data-en="← Back to Posts" data-zh="← 返回文章">← Back to Posts</a>
+                <div class="post-content" id="post-content">
+                    <!-- Individual post content will be loaded here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Admin Button -->
+    <button class="admin-btn" onclick="showAdminModal()" title="Admin">+</button>
+
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" data-en="Admin Panel" data-zh="管理面板">Admin Panel</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            
+            <form id="admin-form">
+                <div class="form-group">
+                    <label class="form-label" data-en="Security Code" data-zh="安全码">Security Code</label>
+                    <input type="password" class="form-input" id="security-code" required>
+                </div>
+                
+                <div id="blog-form" class="hidden">
+                    <div class="form-group">
+                        <label class="form-label" data-en="Post Title (English)" data-zh="文章标题（英文）">Post Title (English)</label>
+                        <input type="text" class="form-input" id="post-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Post Title (Chinese)" data-zh="文章标题（中文）">Post Title (Chinese)</label>
+                        <input type="text" class="form-input" id="post-title-zh">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Tags (comma separated)" data-zh="标签（逗号分隔）">Tags (comma separated)</label>
+                        <input type="text" class="form-input" id="post-tags" placeholder="AI, Machine Learning, Agents">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Excerpt (English)" data-zh="摘要（英文）">Excerpt (English)</label>
+                        <input type="text" class="form-input" id="post-excerpt" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Excerpt (Chinese)" data-zh="摘要（中文）">Excerpt (Chinese)</label>
+                        <input type="text" class="form-input" id="post-excerpt-zh">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Content (English - Markdown supported)" data-zh="内容（英文 - 支持Markdown）">Content (English - Markdown supported)</label>
+                        <textarea class="form-textarea" id="post-content-input" placeholder="# Your title here
+
+Your content here...
+
+```javascript
+// Code blocks supported
+console.log('Hello World');
+```" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" data-en="Content (Chinese - Markdown supported)" data-zh="内容（中文 - 支持Markdown）">Content (Chinese - Markdown supported)</label>
+                        <textarea class="form-textarea" id="post-content-input-zh" placeholder="# 你的标题
+
+你的内容...
+
+```javascript
+// 支持代码块
+console.log('Hello World');
+```"></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal()" data-en="Cancel" data-zh="取消">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-en="Publish Post" data-zh="发布文章">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="js/markdown-parser.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

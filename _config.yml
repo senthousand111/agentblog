@@ -1,0 +1,70 @@
+# GitHub Pages Configuration
+title: "Agent Learning Blog"
+description: "Exploring AI agents, machine learning, and the future of intelligence"
+author: "Sen千折"
+email: "your.email@example.com"
+baseurl: "/agent-learning-blog" # Change this to match your repository name
+url: "https://yourusername.github.io" # Change to your GitHub username
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - LICENSE
+  - docs/
+  - .gitignore
+  - node_modules/
+  - vendor/
+
+# Include files
+include:
+  - _pages
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:collection/:name/
+
+# SEO settings
+lang: en
+locale: en_US
+
+# Social media
+twitter:
+  username: yourusername
+  card: summary_large_image
+
+facebook:
+  app_id: # Your Facebook App ID
+  publisher: # Your Facebook Page URL
+
+# Google Analytics (optional)
+google_analytics: # Your GA tracking ID
+
+# GitHub repository
+github:
+  repository_url: "https://github.com/yourusername/agent-learning-blog"
+
+# Theme settings
+theme_color: "#2e7d32"
+background_color: "#ffffff"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Sen千折"
