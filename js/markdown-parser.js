@@ -49,7 +49,7 @@ function parseMarkdown(markdown) {
     // Unordered lists
     html = html.replace(/^\* (.+)$/gm, '<li>$1</li>');
     html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-    html = html.replace(/^\+ (.+)$/gm, '<li>$1</li>');
+    // html = html.replace(/^\+ (.+)$/gm, '<li>$1</li>');
     
     // Ordered lists
     html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
