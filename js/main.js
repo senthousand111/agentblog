@@ -289,6 +289,9 @@ function showPost(postId) {
     `;
     
     showPage('post');
+    
+    // Highlight code after content is added
+    setTimeout(highlightCode, 10);
 }
 
 // Language toggle
@@ -414,6 +417,12 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+function highlightCode() {
+    if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+    }
+}
+
 function showNotification(message, type = 'info') {
     // Remove existing notifications
     const existing = document.querySelector('.notification');
@@ -457,6 +466,83 @@ function showNotification(message, type = 'info') {
             }
         }, 300);
     }, 3000);
+}
+
+// Simple Markdown Parser (inline version)
+function parseMarkdown(markdown) {
+    if (!markdown) return '';
+    
+    let html = markdown;
+    
+    // Escape HTML entities first
+    html = html.replace(/&/g, '&amp;')
+               .replace(/</g, '&lt;')
+               .replace(/>/g, '&gt;');
+    
+    // Code blocks (must be done before inline code)
+    html = html.replace(/```(\w+)?\n([\s\S]*?)\n```/g, function(match, language, code) {
+        const lang = language ? ` class="language-${language}"` : '';
+        return `<pre><code${lang}>${code.trim()}</code></pre>`;
+    });
+    
+    // Inline code
+    html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+    
+    // Headers
+    html = html.replace(/^### (.*$)/gm, '<h3>$1</h3>');
+    html = html.replace(/^## (.*$)/gm, '<h2>$1</h2>');
+    html = html.replace(/^# (.*$)/gm, '<h1>$1</h1>');
+    
+    // Bold text
+    html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    html = html.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    
+    // Italic text
+    html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    html = html.replace(/_(.*?)_/g, '<em>$1</em>');
+    
+    // Links
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    
+    // Images
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" loading="lazy">');
+    
+    // Blockquotes
+    html = html.replace(/^> (.*$)/gm, '<blockquote>$1</blockquote>');
+    
+    // Horizontal rules
+    html = html.replace(/^---$/gm, '<hr>');
+    html = html.replace(/^\*\*\*$/gm, '<hr>');
+    
+    // Unordered lists
+    html = html.replace(/^\* (.+)$/gm, '<li>$1</li>');
+    html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+    html = html.replace(/^+ (.+)$/gm, '<li>$1</li>');
+    
+    // Ordered lists
+    html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
+    
+    // Wrap consecutive list items in ul tags
+    html = html.replace(/(<li>.*<\/li>)\s*(?=<li>)/gs, '$1');
+    html = html.replace(/(<li>.*?<\/li>(?:\s*<li>.*?<\/li>)*)/gs, '<ul>$1</ul>');
+    
+    // Line breaks and paragraphs
+    html = html.replace(/\n\n/g, '</p><p>');
+    html = html.replace(/\n/g, '<br>');
+    
+    // Wrap in paragraphs if needed
+    const blockElements = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'blockquote', 'ul', 'ol', 'hr'];
+    const hasBlocks = blockElements.some(tag => html.includes(`<${tag}`));
+    
+    if (!hasBlocks && html.trim()) {
+        html = `<p>${html}</p>`;
+    }
+    
+    // Clean up empty paragraphs
+    html = html.replace(/<p><\/p>/g, '');
+    html = html.replace(/<p>\s*<\/p>/g, '');
+    
+    return html;
 }
 
 // Add CSS for notification animations
